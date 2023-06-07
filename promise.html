@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Promise-Promise chaining</title>
+        <meta charset ="utf-8">
+		<meta name="description" content=""/>
+		<meta name="keywords" content="HTML,CSS,Java script"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    </head>
+    <body>
+        <script>
+            //promise
+                var alr =[2,34,76,3];
+                som = (alr) => {
+                return alr === 3
+                }
+                res = alr.some(som);
+                var pro = new Promise((resolve,reject) => {
+                if(res===true){
+                    resolve("JavaScript is a");
+                }
+                else{
+                    reject("JavaScript is a");
+                }
+                });
+                    suc = (dynamic) => {
+                    console.log(dynamic+" Dynamic Language");
+                }
+                    rej = (not) => {
+                    console.log(not+" Not Dynamic Language");
+                }
+                    pro.then(suc).catch(rej);
+
+            //Promise chaining
+                const user = () => {
+                    return new Promise((res,rej)=>{
+                        res("Hi user");
+                    });
+                }
+
+                const user1 = (a) => {
+                    return new Promise((res,rej)=>{
+                        res(a+", Hi user1");
+                    });
+                }
+
+                const user2 = (b) => {
+                    return new Promise((res,rej)=>{
+                        res(b+", Hi user2.");
+                    });
+                }
+
+                user().then((x)=>{
+                    return user1(x);
+                }).then((y)=>{
+                    return user2(y);
+                }).then((z)=>{
+                    console.log(z);
+                })
+                .catch(()=>{
+                    console.log("error");
+                });
+        </script>
+    </body>
+</html>
